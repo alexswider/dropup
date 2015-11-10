@@ -1,0 +1,88 @@
+h3 {
+    margin-bottom: 30px;
+}
+
+header {
+    height: 20px;
+    margin: 1px 10px;
+}
+
+section.container {
+    margin: 30px;
+}
+
+.date {
+    margin-top: 50px;
+}
+
+.message {
+    margin: 5px 20px;
+}
+
+#assets {
+    width: 800px;
+    margin: auto;
+}
+
+#save-order {
+    display: none;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#assets > .asset {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+#assets > .asset > p {
+    margin: 15px;
+}
+
+#assets > .asset > .order {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    left: -50px;
+    margin: 0px -10px -50px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+}
+
+#new-asset {
+    margin-bottom: 40px;
+}
+
+#new-asset > #info {
+    display: none;
+    width: 400px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#dropzone{
+    width: 100%;
+    height: 600px;
+    border: 3px dashed #000;
+    border-radius: 25px;
+}
+
+#dropzone.state-over{
+    border-color: #008CBA;
+}
+
+#dropzone > p {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 580px;
+}
+
+#dropzone > img {
+    border-radius: 22px;
+}

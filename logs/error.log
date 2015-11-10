@@ -1,0 +1,698 @@
+2015-11-04 18:29:01 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Ds could not be found.
+Exception Attributes: array (
+  'class' => 'Ds',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /ds
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 18:29:15 Error: [Cake\Controller\Exception\MissingActionException] Action ImagesController::add() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'ImagesController',
+  'action' => 'add',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /images/add
+Stack Trace:
+#0 C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ImagesController))
+#2 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-11-04 18:49:14 Warning: Warning (512): Method Cake\View\Helper\HtmlHelper::java does not exist in [C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\View\Helper.php, line 138]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 138
+Cake\View\Helper::__call() - CORE\src\View\Helper.php, line 138
+Cake\View\Helper\HtmlHelper::java() - APP/Template\Layout\default.ctp, line 34
+include - APP/Template\Layout\default.ctp, line 34
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 970
+Cake\View\View::_render() - CORE\src\View\View.php, line 930
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 624
+Cake\View\View::render() - CORE\src\View\View.php, line 583
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 611
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-11-04 18:49:56 Warning: Warning (512): Method Cake\View\Helper\HtmlHelper::js does not exist in [C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\View\Helper.php, line 138]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 138
+Cake\View\Helper::__call() - CORE\src\View\Helper.php, line 138
+Cake\View\Helper\HtmlHelper::js() - APP/Template\Layout\default.ctp, line 34
+include - APP/Template\Layout\default.ctp, line 34
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 970
+Cake\View\View::_render() - CORE\src\View\View.php, line 930
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 624
+Cake\View\View::render() - CORE\src\View\View.php, line 583
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 611
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-11-04 18:52:22 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.css.js
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 18:52:32 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 19:01:12 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 19:02:02 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 19:03:10 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 19:54:06 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 19:57:24 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:21:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:22:25 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:23:55 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:26:59 Error: [LogicException] The "script" block was left open. Blocks are not allowed to cross files.
+Request URL: /images
+Stack Trace:
+#0 C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\View\View.php(578): Cake\View\View->_render('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\Controller\Controller.php(611): Cake\View\View->render(NULL, NULL)
+#2 C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\xampp\htdocs\drop\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ImagesController))
+#4 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-11-04 21:27:46 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:40:44 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:41:51 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:45:02 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:45:20 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:46:13 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:47:10 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 21:49:21 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:02:39 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:02:58 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:06:12 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:06:38 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:07:32 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:08:13 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:08:13 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Angular.js could not be found.
+Exception Attributes: array (
+  'class' => 'Angular.js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /angular.js
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:08:39 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:09:07 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:11:55 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:12:47 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:13:16 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:13:27 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-04 23:14:00 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /js/angular.min.js.map
+Stack Trace:
+#0 C:\xampp\htdocs\drop\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-09 02:07:37 Error: [Cake\Routing\Exception\MissingControllerException] Controller class DocsAssets could not be found.
+Exception Attributes: array (
+  'class' => 'DocsAssets',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /docs-assets/ico/favicon.png
+Stack Trace:
+#0 /Users/aswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-11-09 21:50:45 Error: [PDOException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+Request URL: /users/login
+Stack Trace:
+#0 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(90): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(43): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Connection.php(315): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(422): Cake\Database\Connection->schemaCollection()
+#8 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(173): Cake\ORM\Table->schema()
+#9 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(131): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(1228): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(931): Cake\ORM\Table->query()
+#12 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(147): Cake\ORM\Table->find('all', Array)
+#13 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('admin')
+#14 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('admin', 'test')
+#15 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(764): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/src/Controller/UsersController.php(16): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\UsersController->login()
+#18 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Controller.php(429): call_user_func_array(Array, Array)
+#19 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsersController))
+#21 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+
+2015-11-09 21:54:11 Error: [PDOException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+Request URL: /users/login
+Stack Trace:
+#0 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(90): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(43): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Connection.php(315): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(422): Cake\Database\Connection->schemaCollection()
+#8 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(173): Cake\ORM\Table->schema()
+#9 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(131): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(1228): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(931): Cake\ORM\Table->query()
+#12 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(147): Cake\ORM\Table->find('all', Array)
+#13 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('admin')
+#14 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('admin', 'rest')
+#15 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(764): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/src/Controller/UsersController.php(16): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\UsersController->login()
+#18 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Controller.php(429): call_user_func_array(Array, Array)
+#19 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsersController))
+#21 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+
+2015-11-09 21:56:56 Error: [PDOException] SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'drop'
+Request URL: /users/login
+Stack Trace:
+#0 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'drop', '', Array)
+#1 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(90): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(43): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Connection.php(315): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(422): Cake\Database\Connection->schemaCollection()
+#8 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(173): Cake\ORM\Table->schema()
+#9 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(131): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(1228): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(931): Cake\ORM\Table->query()
+#12 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(147): Cake\ORM\Table->find('all', Array)
+#13 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('admin')
+#14 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('admin', 'test')
+#15 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(764): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/src/Controller/UsersController.php(16): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\UsersController->login()
+#18 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Controller.php(429): call_user_func_array(Array, Array)
+#19 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsersController))
+#21 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+
+2015-11-09 21:58:34 Error: [PDOException] SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'drop'
+Request URL: /users/login
+Stack Trace:
+#0 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'drop', '', Array)
+#1 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(90): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(43): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Connection.php(315): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(422): Cake\Database\Connection->schemaCollection()
+#8 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(173): Cake\ORM\Table->schema()
+#9 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(131): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(1228): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(931): Cake\ORM\Table->query()
+#12 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(147): Cake\ORM\Table->find('all', Array)
+#13 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('admin')
+#14 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('admin', 'test')
+#15 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(764): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/src/Controller/UsersController.php(16): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\UsersController->login()
+#18 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Controller.php(429): call_user_func_array(Array, Array)
+#19 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsersController))
+#21 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+
+2015-11-09 22:00:52 Error: [PDOException] SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'drop'
+Request URL: /users/login
+Stack Trace:
+#0 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'drop', '', Array)
+#1 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(90): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(43): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Connection.php(315): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(422): Cake\Database\Connection->schemaCollection()
+#8 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(173): Cake\ORM\Table->schema()
+#9 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(131): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(1228): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(931): Cake\ORM\Table->query()
+#12 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(147): Cake\ORM\Table->find('all', Array)
+#13 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('admin')
+#14 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('admin', 'test')
+#15 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(764): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/src/Controller/UsersController.php(16): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\UsersController->login()
+#18 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Controller.php(429): call_user_func_array(Array, Array)
+#19 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsersController))
+#21 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+
+2015-11-09 22:15:14 Error: [PDOException] SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'drop'
+Request URL: /users/login
+Stack Trace:
+#0 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'drop', '', Array)
+#1 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(90): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(43): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Connection.php(315): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(422): Cake\Database\Connection->schemaCollection()
+#8 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(173): Cake\ORM\Table->schema()
+#9 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(131): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(1228): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(931): Cake\ORM\Table->query()
+#12 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(147): Cake\ORM\Table->find('all', Array)
+#13 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('admin')
+#14 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('admin', 'test')
+#15 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(764): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/src/Controller/UsersController.php(16): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\UsersController->login()
+#18 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Controller.php(429): call_user_func_array(Array, Array)
+#19 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsersController))
+#21 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+
+2015-11-09 22:18:12 Error: [PDOException] SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'drop'
+Request URL: /users/login
+Stack Trace:
+#0 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(48): PDO->__construct('mysql:host=loca...', 'drop', '', Array)
+#1 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(90): Cake\Database\Driver\Mysql->_connect('mysql:host=loca...', Array)
+#2 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(43): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Database/Connection.php(315): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(422): Cake\Database\Connection->schemaCollection()
+#8 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(173): Cake\ORM\Table->schema()
+#9 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Query.php(131): Cake\ORM\Query->addDefaultTypes(Object(App\Model\Table\UsersTable))
+#10 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(1228): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(App\Model\Table\UsersTable))
+#11 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/ORM/Table.php(931): Cake\ORM\Table->query()
+#12 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(147): Cake\ORM\Table->find('all', Array)
+#13 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/BaseAuthenticate.php(105): Cake\Auth\BaseAuthenticate->_query('admin')
+#14 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Auth/FormAuthenticate.php(77): Cake\Auth\BaseAuthenticate->_findUser('admin', 'test')
+#15 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Component/AuthComponent.php(764): Cake\Auth\FormAuthenticate->authenticate(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/src/Controller/UsersController.php(16): Cake\Controller\Component\AuthComponent->identify()
+#17 [internal function]: App\Controller\UsersController->login()
+#18 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Controller/Controller.php(429): call_user_func_array(Array, Array)
+#19 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#20 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/vendor/cakephp/cakephp/src/Routing/Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsersController))
+#21 /Users/alexswiderski/Dropbox/_Brigade/SubContractors/marcin_kozak/drop/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#22 {main}
+
+

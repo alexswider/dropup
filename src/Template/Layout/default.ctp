@@ -16,7 +16,7 @@
 $cakeDescription = 'DropApp';
 ?>
 <!DOCTYPE html>
-<html ng-app="dropApp">
+<html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@ $cakeDescription = 'DropApp';
 <body>
     <header>
         <div>
-            <div class="left"></div>
+            <div class="left"><div class="left"><?= $this->Html->getCrumbs(' > ', 'Clients') ?></div></div>
             <div class="right"><?= $userData ? $this->Html->link('Logout', ['controller' => 'Users', 'action' => 'logout']) : ''?></div>
         </div>
     </header>

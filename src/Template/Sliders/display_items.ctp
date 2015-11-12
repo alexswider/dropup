@@ -1,4 +1,7 @@
-<h3>Clients > <?= $client->name ?> > <?= $project->name ?></h3>
+<?php $this->Html->addCrumb($this->request->params['clientName'], '/'. $this->request->params['clientName']) ?>
+<?php $this->Html->addCrumb($this->request->params['projectName'], '/'. $this->request->params['clientName'] . '/'. $this->request->params['projectName']) ?>
+
+<h3>Items</h3>
 <div>
     <?= $this->Html->link("Add new item", $this->Url->build('/' . $client->urlName . '/' . $project->urlName . '/new', true)) ?>
     <?php foreach ($itemsDate as $key => $date): ?>

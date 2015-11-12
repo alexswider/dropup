@@ -1,3 +1,6 @@
+<?php $this->Html->addCrumb($this->request->params['clientName'], '/'. $this->request->params['clientName']) ?>
+<?php $this->Html->addCrumb($this->request->params['projectName'], '/'. $this->request->params['clientName'] . '/'. $this->request->params['projectName']) ?>
+
 <?= $this->Html->script('jquery-2.1.4.min') ?>
 <?= $this->Html->script('jquery.filedrop.min') ?>
 <?= $this->Html->script('jquery-ui.min') ?>

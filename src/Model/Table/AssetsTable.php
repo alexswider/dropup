@@ -19,8 +19,7 @@ class AssetsTable extends Table
             ->notEmpty('name')
             ->requirePresence('name')
             ->notEmpty('description')
-            ->requirePresence('description')
-            ->notEmpty('image');
+            ->requirePresence('description');
 
         return $validator;
     }

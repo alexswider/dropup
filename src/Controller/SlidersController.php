@@ -73,23 +73,16 @@ class  SlidersController extends AppController
                 ->order(['orderAsset' => 'ASC']);
         
         if ($idItem == 'new') {
-                $isNew = true;
-            }
+            $isNew = true;
+        }
         
-        $asset = $this->Assets->newEntity();
         if ($this->request->is('post')) {
-            $isNew ? $idItem = $this->newItem($projectName, $this->request->data) : '';
-            $asset = $this->Assets->patchEntity($asset, $this->request->data);
-            $asset->idItem = $idItem;
-            $asset->orderAsset = $assets->count();
-            $asset->imagePath = $this->saveImage($asset->image);
-            
-            if ($this->Assets->save($asset)) {
-                $this->Flash->success(__('Asset has been saved.'));
-                $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
-            } else {
-                $this->Flash->error(__('Unable to add your asset.'));
+            if ($isNew) {
+                $idItem = $this->newItem($projectName, $this->request->data['item_name']);
             }
+            
+            $nextOrder = $assets->count();
+            $this->saveAsset($idItem, $projectName, $clientName, $nextOrder, $this->request->data);
         }
         
         $this->set(compact('assets', 'isNew', 'idItem'));
@@ -111,6 +104,25 @@ class  SlidersController extends AppController
         $this->redirect($this->request->data['refpage']);
     }
     
+    private function saveAsset($idItem, $projectName, $clientName, $nextOrder, $requestData) {
+        $this->loadModel('Assets');
+        
+        $asset = $this->Assets->newEntity([
+            'idItem' => $idItem, 
+            'name' => $requestData['name'],
+            'description' => $requestData['description'],
+            'imagePath' => $this->saveImage($requestData['image']),
+            'orderAsset' => $nextOrder
+        ]);
+
+        if ($this->Assets->save($asset)) {
+            $this->Flash->success(__('Asset has been saved.'));
+            $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
+        } else {
+            $this->Flash->error(__('Unable to add your asset.'));
+        }
+    }
+
     private function saveImage($imageData) {
         $format = substr($imageData, 11, 3);
         switch ($format) {
@@ -135,7 +147,7 @@ class  SlidersController extends AppController
         return $file;
     }
     
-    private function newItem($projectName, $requestData) {
+    private function newItem($projectName, $name) {
         $this->loadModel('Projects');
         $this->loadModel('Items');
         
@@ -145,17 +157,20 @@ class  SlidersController extends AppController
                 ->where(['urlName' => $projectName])
                 ->first();
         
-        $item = $this->Items->newEntity();
-        $item = $this->Items->patchEntity($item, $requestData);
-        $item->idProject = $idProject->idProject;
-        $item->name = $item->item_name;
-        $item->date = Time::now();
-        if ($result = $this->Items->save($item)) {
+        $item = $this->Items->newEntity([
+            'idProject' => $idProject->idProject, 
+            'name' => $name, 
+            'date' => Time::now()
+        ]);
+        
+        $result = $this->Items->save($item);
+                
+        if ($result) {
             $this->Flash->success(__('Item has been saved.'));
         } else {
             $this->Flash->error(__('Unable to add your item.'));
         }
         
-        return $result->idItem;
+        return isset($result->idItem) ? $result->idItem : false;
     }
 }

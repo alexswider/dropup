@@ -15,13 +15,10 @@ class  SlidersController extends AppController
     }
     public function displayProjects($clientName)
     {
-        $this->loadModel('Projects');
         $this->loadModel('Clients');
+        $this->loadModel('Projects');
         
-        $client = $this->Clients
-                ->find()
-                ->where(['urlName' => $clientName])
-                ->first();
+        $client = $this->Clients->getByUrlName($clientName);
         
         $projects = $this->Projects
                 ->find('All')
@@ -32,19 +29,12 @@ class  SlidersController extends AppController
     
     public function displayItems($clientName, $projectName)
     {
-        $this->loadModel('Projects');
         $this->loadModel('Clients');
+        $this->loadModel('Projects');
         $this->loadModel('Items');
         
-        $client = $this->Clients
-                ->find()
-                ->where(['urlName' => $clientName])
-                ->first();
-        
-        $project = $this->Projects
-                ->find()
-                ->where(['urlName' => $projectName])
-                ->first();
+        $client = $this->Clients->getByUrlName($clientName);
+        $project = $this->Projects->getByUrlName($projectName);
         
         $itemsDate = $this->Items
                 ->find()
@@ -64,8 +54,13 @@ class  SlidersController extends AppController
     
     public function displayItem($clientName, $projectName, $idItem)
     {
+        $this->loadModel('Clients');
+        $this->loadModel('Projects');
+        $this->loadModel('Items');
         $this->loadModel('Assets');
-        $isNew = false;
+        
+        $client = $this->Clients->getByUrlName($clientName);
+        $project = $this->Projects->getByUrlName($projectName);
         
         $assets = $this->Assets
                 ->find()
@@ -74,6 +69,9 @@ class  SlidersController extends AppController
         
         if ($idItem == 'new') {
             $isNew = true;
+        } else {
+            $isNew = false;
+            $item = $this->Items->get($idItem);
         }
         
         if ($this->request->is('post')) {
@@ -85,7 +83,7 @@ class  SlidersController extends AppController
             $this->saveAsset($idItem, $projectName, $clientName, $nextOrder, $this->request->data);
         }
         
-        $this->set(compact('assets', 'isNew', 'idItem'));
+        $this->set(compact('assets', 'isNew', 'idItem' , 'item', 'project', 'client'));
     }
     
     public function saveOrder($idItem)
@@ -104,7 +102,8 @@ class  SlidersController extends AppController
         $this->redirect($this->request->data['refpage']);
     }
     
-    private function saveAsset($idItem, $projectName, $clientName, $nextOrder, $requestData) {
+    private function saveAsset($idItem, $projectName, $clientName, $nextOrder, $requestData) 
+    {
         $this->loadModel('Assets');
         
         $asset = $this->Assets->newEntity([
@@ -114,16 +113,15 @@ class  SlidersController extends AppController
             'imagePath' => $this->saveImage($requestData['image']),
             'orderAsset' => $nextOrder
         ]);
-
-        if ($this->Assets->save($asset)) {
+        if ($idItem && $this->Assets->save($asset)) {
             $this->Flash->success(__('Asset has been saved.'));
-            $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
-        } else {
-            $this->Flash->error(__('Unable to add your asset.'));
+            return $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
         }
+        $this->Flash->error(__('Unable to add your asset.'));
     }
 
-    private function saveImage($imageData) {
+    private function saveImage($imageData) 
+    {
         $format = substr($imageData, 11, 3);
         switch ($format) {
             case "png":
@@ -147,15 +145,12 @@ class  SlidersController extends AppController
         return $file;
     }
     
-    private function newItem($projectName, $name) {
+    private function newItem($projectName, $name) 
+    {
         $this->loadModel('Projects');
         $this->loadModel('Items');
         
-        $idProject = $this->Projects
-                ->find()
-                ->select('idProject')
-                ->where(['urlName' => $projectName])
-                ->first();
+        $idProject = $this->Projects->getByUrlName($projectName, ['idProject']);
         
         $item = $this->Items->newEntity([
             'idProject' => $idProject->idProject, 

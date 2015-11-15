@@ -3,3 +3,4 @@
 /logs/*
 /config/app.php
 /nbproject/*
+/webroot/uploads/*

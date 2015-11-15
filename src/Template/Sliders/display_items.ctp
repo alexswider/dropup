@@ -1,5 +1,5 @@
-<?php $this->Html->addCrumb($this->request->params['clientName'], '/'. $this->request->params['clientName']) ?>
-<?php $this->Html->addCrumb($this->request->params['projectName'], '/'. $this->request->params['clientName'] . '/'. $this->request->params['projectName']) ?>
+<?php $this->Html->addCrumb($client->name, '/'. $client->urlName) ?>
+<?php $this->Html->addCrumb($project->name, '/' . $client->urlName . '/' . $project->urlName) ?>
 
 <h3>Items</h3>
 <div>

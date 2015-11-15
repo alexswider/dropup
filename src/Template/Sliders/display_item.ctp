@@ -1,5 +1,6 @@
-<?php $this->Html->addCrumb($this->request->params['clientName'], '/'. $this->request->params['clientName']) ?>
-<?php $this->Html->addCrumb($this->request->params['projectName'], '/'. $this->request->params['clientName'] . '/'. $this->request->params['projectName']) ?>
+<?php $this->Html->addCrumb($client->name, '/' . $client->urlName) ?>
+<?php $this->Html->addCrumb($project->name, '/' . $client->urlName . '/' . $project->urlName) ?>
+<?php !$isNew ? $this->Html->addCrumb($item->name, '/' . $client->urlName . '/' . $project->urlName . '/' . $item->idItem) : '' ?>
 
 <?= $this->Html->script('jquery-2.1.4.min') ?>
 <?= $this->Html->script('jquery.filedrop.min') ?>

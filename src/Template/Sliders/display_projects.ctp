@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb($this->request->params['clientName'], '/'. $this->request->params['clientName']) ?>
+<?php $this->Html->addCrumb($client->name, '/'. $client->urlName) ?>
 <h3>Projects</h3>
 <div>
     <?php foreach ($projects as $project): ?>

@@ -49,7 +49,10 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/users/login', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/users/logout', ['controller' => 'Users', 'action' => 'logout']);
-    
+    $routes->connect('/users/add-admin', ['controller' => 'Users', 'action' => 'addAdmin']);
+    $routes->connect('/users/add-client', ['controller' => 'Users', 'action' => 'addClient']);
+    $routes->connect('/users', ['controller' => 'Users']);
+
     $routes->connect('/', ['controller' => 'Sliders', 'action' => 'index']);
     $routes->connect('/saveOrder/:item', 
             ['controller' => 'Sliders', 'action' => 'saveOrder'],

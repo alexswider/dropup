@@ -37,7 +37,11 @@ $cakeDescription = 'DropApp';
     <header>
         <div>
             <div class="left"><div class="left"><?= $this->Html->getCrumbs(' > ', 'Clients') ?></div></div>
-            <div class="right"><?= $userData ? $this->Html->link('Logout', ['controller' => 'Users', 'action' => 'logout']) : ''?></div>
+            <div class="right">
+                <?= $userData ? $this->Html->link('Panel', ['controller' => 'Users']) : ''?>
+                <i>|</i>
+                <?= $userData ? $this->Html->link('Logout', ['controller' => 'Users', 'action' => 'logout']) : ''?>
+            </div>
         </div>
     </header>
     <?= $this->Flash->render() ?>

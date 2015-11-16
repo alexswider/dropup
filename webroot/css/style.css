@@ -19,6 +19,10 @@ section.container {
     margin: 5px 20px;
 }
 
+.hide {
+    display: none;
+}
+
 #assets {
     width: 800px;
     margin: auto;
@@ -85,4 +89,9 @@ section.container {
 
 #dropzone > img {
     border-radius: 22px;
+}
+
+.new-user {
+    display: none;
+    width: 200px;
 }

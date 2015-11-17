@@ -55,6 +55,7 @@ class UsersController extends AppController
                 return $this->redirect(['controller' => 'users']);
             }
             $this->Flash->error(__('Unable to add the user.'));
+            return $this->redirect(['controller' => 'users']);
         }
         $this->set('user', $user);
     }
@@ -69,6 +70,7 @@ class UsersController extends AppController
                 return $this->redirect(['controller' => 'users']);
             }
             $this->Flash->error(__('Unable to add the user.'));
+            return $this->redirect(['controller' => 'users']);
         }
         $this->set('user', $user);
     }

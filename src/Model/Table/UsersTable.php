@@ -3,12 +3,21 @@
 namespace App\Model\Table;
 
 use Cake\ORM\Table;
-use Cake\Auth\DefaultPasswordHasher;
+use Cake\Validation\Validator;
 
 class UsersTable extends Table
 {
-    protected function _setPassword($password)
+    public function validationDefault(Validator $validator)
     {
-        return (new DefaultPasswordHasher)->hash($password);
+        $validator
+            ->notEmpty('username', 'A username is required')
+            ->notEmpty('password', 'A password is required')
+            ->add('username', 'unique', [
+                'rule' => 'validateUnique',
+                'provider' => 'table',
+                'message' => 'Username already exists'
+            ]);
+
+        return $validator;
     }
 }

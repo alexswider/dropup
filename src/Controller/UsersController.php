@@ -7,6 +7,11 @@ use App\Controller\AppController;
 class UsersController extends AppController
 {
     public function index() {
+        if ($this->Auth->user('type') != 'admin') {
+            $this->Flash->error(__('You do not have permission.'));
+            return $this->redirect(['controller' => 'users', 'action' => 'login']);
+        }
+        
         $this->loadModel('Clients');
         $clientsName = [];
         

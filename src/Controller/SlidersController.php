@@ -3,15 +3,31 @@
 namespace App\Controller;
 
 use Cake\I18n\Time;
+use Cake\Event\Event;
 
 class  SlidersController extends AppController
 {
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow(['index', 'displayProjects', 'displayItems', 'displayItem']);
+    }
+    
     public function index()
     {
         $this->loadModel('Clients');
+        $user = $this->Auth->user();
         
-        $clients = $this->Clients->find('All');
-        $this->set(compact('clients'));
+        if($user['type'] == 'admin') {
+            $clients = $this->Clients->find();
+        } else {
+            $clients = $this->Clients->find()->where(['private' => 0]);
+        }
+        if($user['type'] == 'client') {
+            $privateClients = $this->Clients->find()->where(['private' => 1, 'idClient' => $user['idClient']]);
+            $clients = array_merge($privateClients->toArray(), $clients->toArray());
+        }
+                
+        $this->set(compact('clients', 'privateClients'));
     }
     public function displayProjects($clientName)
     {
@@ -75,6 +91,10 @@ class  SlidersController extends AppController
         }
         
         if ($this->request->is('post')) {
+            if ($this->Auth->user('type') != 'admin') {
+                $this->Flash->error(__('You do not have permission.'));
+                return $this->redirect(['controller' => 'users', 'action' => 'login']);
+            }
             if ($isNew) {
                 $idItem = $this->newItem($projectName, $this->request->data['item_name']);
             }
@@ -88,6 +108,11 @@ class  SlidersController extends AppController
     
     public function saveOrder($idItem)
     {
+        if ($this->Auth->user('type') != 'admin') {
+            $this->Flash->error(__('You do not have permission.'));
+            return $this->redirect(['controller' => 'users', 'action' => 'login']);
+        }
+        
         $this->loadModel('Assets');
         
         $order = json_decode($this->request->data['orderAsset'], true);
@@ -98,6 +123,10 @@ class  SlidersController extends AppController
                     ->set(['orderAsset' => $key])
                     ->where(['idItem' => $idItem, 'idAsset' => $id])
                     ->execute();
+        }
+        
+        if ($query) {
+            $this->Flash->success(__('Order has been saved.'));
         }
         $this->redirect($this->request->data['refpage']);
     }

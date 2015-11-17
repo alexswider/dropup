@@ -3,7 +3,7 @@
 
 <h3>Items</h3>
 <div>
-    <?= $this->Html->link("Add new item", $this->Url->build('/' . $client->urlName . '/' . $project->urlName . '/new', true)) ?>
+    <?= $isAdmin ? $this->Html->link("Add new item", $this->Url->build('/' . $client->urlName . '/' . $project->urlName . '/new', true)) : '' ?>
     <?php foreach ($itemsDate as $key => $date): ?>
     <div class="date">
         <h4><?php 

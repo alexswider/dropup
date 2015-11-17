@@ -2,10 +2,12 @@
 <?php $this->Html->addCrumb($project->name, '/' . $client->urlName . '/' . $project->urlName) ?>
 <?php !$isNew ? $this->Html->addCrumb($item->name, '/' . $client->urlName . '/' . $project->urlName . '/' . $item->idItem) : '' ?>
 
+<?php if ($isAdmin): ?>
 <?= $this->Html->script('jquery-2.1.4.min') ?>
 <?= $this->Html->script('jquery.filedrop.min') ?>
 <?= $this->Html->script('jquery-ui.min') ?>
 <?= $this->Html->script('drop') ?>
+<?php endif; ?>
 
 <div id="assets">
     <?= $this->Form->create(null, ['url' => '/saveOrder/' . $idItem]) ?>
@@ -21,6 +23,7 @@
         <p><?= $asset->description ?></p>
     </div>
     <?php endforeach; ?>
+    <?php if ($isAdmin): ?>
     <div id="new-asset">
         <div id="dropzone">
             <p>Add new asset</p>
@@ -35,4 +38,5 @@
             <?= $this->Form->end() ?>
         </div>
     </div>
+    <?php endif; ?>
 </div>

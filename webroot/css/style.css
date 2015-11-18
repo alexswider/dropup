@@ -95,3 +95,8 @@ section.container {
     display: none;
     width: 200px;
 }
+
+.new-project {
+    display: none;
+    width: 200px;
+}

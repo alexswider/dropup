@@ -40,6 +40,20 @@ class  SlidersController extends AppController
                 ->find('All')
                 ->where(['idClient' => $client->idClient]);
         
+        if ($this->request->is('post')) {
+            if ($this->Auth->user('type') != 'admin') {
+                $this->Flash->error(__('You do not have permission.'));
+                return $this->redirect(['controller' => 'users', 'action' => 'login']);
+            }
+            $project = $this->Projects->newEntity();
+            $this->Projects->patchEntity($project, $this->request->data);
+            $project->idClient = $client->idClient;
+            if ($this->Projects->save($project)) {
+                $this->Flash->success(__('New project has been saved.'));
+            }
+            $this->Flash->error(__('Unable to add new project.'));
+        }
+        
         $this->set(compact('projects', 'client'));
     }
     

@@ -50,8 +50,9 @@ class  SlidersController extends AppController
             $project->idClient = $client->idClient;
             if ($this->Projects->save($project)) {
                 $this->Flash->success(__('New project has been saved.'));
+            } else {
+                $this->Flash->error(__('Unable to add new project.'));
             }
-            $this->Flash->error(__('Unable to add new project.'));
         }
         
         $this->set(compact('projects', 'client'));
@@ -153,7 +154,7 @@ class  SlidersController extends AppController
             'idItem' => $idItem, 
             'name' => $requestData['name'],
             'description' => $requestData['description'],
-            'imagePath' => $this->saveImage($requestData['image']),
+            'imagePath' => $this->saveImage($requestData['image'], $idItem),
             'orderAsset' => $nextOrder
         ]);
         if ($idItem && $this->Assets->save($asset)) {
@@ -163,7 +164,7 @@ class  SlidersController extends AppController
         $this->Flash->error(__('Unable to add your asset.'));
     }
 
-    private function saveImage($imageData) 
+    private function saveImage($imageData, $idItem) 
     {
         $format = substr($imageData, 11, 3);
         switch ($format) {
@@ -182,7 +183,7 @@ class  SlidersController extends AppController
         
         $imageData = base64_decode(preg_replace('/^data:image\/\w+;base64,/', '', $imageData));
         
-        $file = "uploads/" . uniqid() . $format;
+        $file = "uploads/" . $idItem . '/' . uniqid() . $format;
 	file_put_contents($file, $imageData);
         
         return $file;
@@ -203,7 +204,7 @@ class  SlidersController extends AppController
         
         $result = $this->Items->save($item);
                 
-        if ($result) {
+        if ($result && mkdir('uploads/' . $result->idItem)) {
             $this->Flash->success(__('Item has been saved.'));
         } else {
             $this->Flash->error(__('Unable to add your item.'));

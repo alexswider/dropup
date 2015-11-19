@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Cake\I18n\Time;
 use Cake\Event\Event;
+use ZipArchive;
 
 class  SlidersController extends AppController
 {
@@ -80,6 +81,13 @@ class  SlidersController extends AppController
                 ->where(['idProject' => $project->idProject, 'date' => $date->date]);
         }
         
+        if ($this->request->is('post')) {
+            if ($this->Auth->user('type') != 'admin') {
+                $this->Flash->error(__('You do not have permission.'));
+                return $this->redirect(['controller' => 'users', 'action' => 'login']);
+            }
+            $this->newItem($project->idProject, $this->request->data['name'], $this->request->data['type']);
+        }
         $this->set(compact('items', 'itemsDate', 'project', 'client'));
     }
     
@@ -88,37 +96,18 @@ class  SlidersController extends AppController
         $this->loadModel('Clients');
         $this->loadModel('Projects');
         $this->loadModel('Items');
-        $this->loadModel('Assets');
         
         $client = $this->Clients->getByUrlName($clientName);
-        $project = $this->Projects->getByUrlName($projectName);
+        $project = $this->Projects->getByUrlName($projectName); 
+        $item = $this->Items->get($idItem);
         
-        $assets = $this->Assets
-                ->find()
-                ->where(['idItem' => $idItem])
-                ->order(['orderAsset' => 'ASC']);
+        $this->set(compact('idItem' , 'item', 'project', 'client'));
         
-        if ($idItem == 'new') {
-            $isNew = true;
-        } else {
-            $isNew = false;
-            $item = $this->Items->get($idItem);
+        if ($item->type == 'assets') {
+            $this->displayAssets($this, $idItem, $projectName, $clientName);
+        } else if ($item->type == 'media') {
+            $this->displayMedia($this, $idItem, $projectName, $clientName);
         }
-        
-        if ($this->request->is('post')) {
-            if ($this->Auth->user('type') != 'admin') {
-                $this->Flash->error(__('You do not have permission.'));
-                return $this->redirect(['controller' => 'users', 'action' => 'login']);
-            }
-            if ($isNew) {
-                $idItem = $this->newItem($projectName, $this->request->data['item_name']);
-            }
-            
-            $nextOrder = $assets->count();
-            $this->saveAsset($idItem, $projectName, $clientName, $nextOrder, $this->request->data);
-        }
-        
-        $this->set(compact('assets', 'isNew', 'idItem' , 'item', 'project', 'client'));
     }
     
     public function saveOrder($idItem)
@@ -144,6 +133,89 @@ class  SlidersController extends AppController
             $this->Flash->success(__('Order has been saved.'));
         }
         $this->redirect($this->request->data['refpage']);
+    }
+    
+    private function displayMedia($scope, $idItem, $projectName, $clientName) {
+        $scope->loadModel('Media');
+        $data = $scope->Media
+            ->find()
+            ->where(['idItem' => $idItem]);
+        
+        if ($scope->request->is('post')) {
+            if ($scope->Auth->user('type') != 'admin') {
+                $scope->Flash->error(__('You do not have permission.'));
+                return $scope->redirect(['controller' => 'users', 'action' => 'login']);
+            }
+            $scope->saveMedia($idItem, $projectName, $clientName, $scope->request->data);
+        }
+        
+        $scope->set(compact('data'));
+        $scope->render('display_media');
+    }
+    
+    private function displayAssets($scope, $idItem, $projectName, $clientName) {
+        $data = $scope->loadAssets($idItem);
+        
+        if ($scope->request->is('post')) {
+            if ($scope->Auth->user('type') != 'admin') {
+                $scope->Flash->error(__('You do not have permission.'));
+                return $scope->redirect(['controller' => 'users', 'action' => 'login']);
+            }
+            $nextOrder = $data->count();
+            $scope->saveAsset($idItem, $projectName, $clientName, $nextOrder, $scope->request->data);
+        }
+        
+        $scope->set(compact('data'));
+        $scope->render('display_assets');
+    }
+    
+    private function saveMedia($idItem, $projectName, $clientName, $requestData) {
+        $this->loadModel('Media');
+        
+        $media = $this->Media->newEntity([
+            'idItem' => $idItem, 
+            'name' => $requestData['name'],
+            'description' => $requestData['description'],
+            'height' => $requestData['height'],
+            'width' => $requestData['width'],
+            'path' => $this->unzip($requestData['zipfile'], $idItem),
+        ]);
+        
+        if ($idItem && $this->Assets->save($media)) {
+            $this->Flash->success(__('Media has been saved.'));
+            return $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
+        }
+        $this->Flash->error(__('Unable to add your media.'));
+    }
+    
+    private function unzip($zipData, $idItem) {
+        $file = tempnam("tmp", "zip");
+        $zip = new ZipArchive();
+        $res = $zip->open($file, ZipArchive::OVERWRITE);
+        
+        if($res == TRUE) {
+            $zipData = preg_replace('/^data:;base64,/', '', $zipData);
+            $zip->addFromString('zip', base64_decode($zipData));
+
+            $path = 'uploads/' . $idItem . '/';
+            $zip->extractTo($path);
+            $zip->close();
+        } else {
+            $this->Flash->error(__('Unable to unzip.'));
+        }
+        
+        
+        return $path;
+    }
+    
+    private function loadAssets($idItem) {
+        $this->loadModel('Assets');
+        $assets = $this->Assets
+                ->find()
+                ->where(['idItem' => $idItem])
+                ->order(['orderAsset' => 'ASC']);
+        
+        return $assets;
     }
     
     private function saveAsset($idItem, $projectName, $clientName, $nextOrder, $requestData) 
@@ -189,17 +261,15 @@ class  SlidersController extends AppController
         return $file;
     }
     
-    private function newItem($projectName, $name) 
-    {
-        $this->loadModel('Projects');
+    private function newItem($idProject, $name, $type) 
+    {     
         $this->loadModel('Items');
         
-        $idProject = $this->Projects->getByUrlName($projectName, ['idProject']);
-        
         $item = $this->Items->newEntity([
-            'idProject' => $idProject->idProject, 
+            'idProject' => $idProject, 
             'name' => $name, 
-            'date' => Time::now()
+            'date' => Time::now(),
+            'type' => $type
         ]);
         
         $result = $this->Items->save($item);
@@ -209,7 +279,5 @@ class  SlidersController extends AppController
         } else {
             $this->Flash->error(__('Unable to add your item.'));
         }
-        
-        return isset($result->idItem) ? $result->idItem : false;
     }
 }

@@ -5,4 +5,5 @@
         <a href="<?= $this->Url->build('/' . $client->urlName, true) ?>"><?= $client->name?></a> <?= $client->private ? ' <i class="fa fa-eye-slash"></i>' : '' ?>
     </p>
     <?php endforeach; ?>
+    
 </div>

@@ -3,7 +3,24 @@
 
 <h3>Items</h3>
 <div>
-    <?= $isAdmin ? '<i class="fa fa-plus-circle"></i> ' . $this->Html->link("Add new item", $this->Url->build('/' . $client->urlName . '/' . $project->urlName . '/new', true)) : '' ?>
+    <?php if ($isAdmin): ?>
+    <?= $this->Html->script('jquery-2.1.4.min') ?>
+    <script>
+        $(document).ready(function() {
+            $('#add-item').click(function() {
+                $('.new-item').slideToggle();
+            });
+        });
+    </script>
+    <p><i class="fa fa-plus-circle"></i> <a id="add-item">Add new item</a></p>
+    <div class="new-item slide-form">
+        <?= $this->Form->create() ?>
+        <?= $this->Form->input('name') ?>
+        <?= $this->Form->select('type', ['assets' => 'Assets','media' => 'Media']) ?>
+        <?= $this->Form->button('Add') ?>
+        <?= $this->Form->end() ?>
+    </div>
+    <?php endif; ?>
     <?php foreach ($itemsDate as $key => $date): ?>
     <div class="date">
         <h4><?php 

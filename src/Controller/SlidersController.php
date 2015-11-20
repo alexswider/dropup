@@ -104,9 +104,9 @@ class  SlidersController extends AppController
         $this->set(compact('idItem' , 'item', 'project', 'client'));
         
         if ($item->type == 'assets') {
-            $this->displayAssets($this, $idItem, $projectName, $clientName);
+            $this->displayAssets($idItem, $projectName, $clientName);
         } else if ($item->type == 'media') {
-            $this->displayMedia($this, $idItem, $projectName, $clientName);
+            $this->displayMedia($idItem, $projectName, $clientName);
         }
     }
     
@@ -135,38 +135,35 @@ class  SlidersController extends AppController
         $this->redirect($this->request->data['refpage']);
     }
     
-    private function displayMedia($scope, $idItem, $projectName, $clientName) {
-        $scope->loadModel('Media');
-        $data = $scope->Media
-            ->find()
-            ->where(['idItem' => $idItem]);
+    private function displayMedia($idItem, $projectName, $clientName) {
+        $data = $this->loadMedia($idItem);
         
-        if ($scope->request->is('post')) {
-            if ($scope->Auth->user('type') != 'admin') {
-                $scope->Flash->error(__('You do not have permission.'));
-                return $scope->redirect(['controller' => 'users', 'action' => 'login']);
+        if ($this->request->is('post')) {
+            if ($this->Auth->user('type') != 'admin') {
+                $this->Flash->error(__('You do not have permission.'));
+                return $this->redirect(['controller' => 'users', 'action' => 'login']);
             }
-            $scope->saveMedia($idItem, $projectName, $clientName, $scope->request->data);
+            $this->saveMedia($idItem, $projectName, $clientName, $this->request->data);
         }
         
-        $scope->set(compact('data'));
-        $scope->render('display_media');
+        $this->set(compact('data'));
+        $this->render('display_media');
     }
     
-    private function displayAssets($scope, $idItem, $projectName, $clientName) {
-        $data = $scope->loadAssets($idItem);
+    private function displayAssets($idItem, $projectName, $clientName) {
+        $data = $$this->loadAssets($idItem);
         
-        if ($scope->request->is('post')) {
-            if ($scope->Auth->user('type') != 'admin') {
-                $scope->Flash->error(__('You do not have permission.'));
-                return $scope->redirect(['controller' => 'users', 'action' => 'login']);
+        if ($$this->request->is('post')) {
+            if ($$this->Auth->user('type') != 'admin') {
+                $$this->Flash->error(__('You do not have permission.'));
+                return $$this->redirect(['controller' => 'users', 'action' => 'login']);
             }
             $nextOrder = $data->count();
-            $scope->saveAsset($idItem, $projectName, $clientName, $nextOrder, $scope->request->data);
+            $$this->saveAsset($idItem, $projectName, $clientName, $nextOrder, $$this->request->data);
         }
         
-        $scope->set(compact('data'));
-        $scope->render('display_assets');
+        $$this->set(compact('data'));
+        $$this->render('display_assets');
     }
     
     private function saveMedia($idItem, $projectName, $clientName, $requestData) {
@@ -181,7 +178,7 @@ class  SlidersController extends AppController
             'path' => $this->unzip($requestData['zipfile'], $idItem),
         ]);
         
-        if ($idItem && $this->Assets->save($media)) {
+        if ($idItem && $this->Media->save($media)) {
             $this->Flash->success(__('Media has been saved.'));
             return $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
         }
@@ -189,21 +186,19 @@ class  SlidersController extends AppController
     }
     
     private function unzip($zipData, $idItem) {
-        $file = tempnam("tmp", "zip");
+        $path = 'uploads'. DS;
+        $zipData = preg_replace('/^data:;base64,/', '', $zipData);
+        file_put_contents($path.'tmp.zip', base64_decode($zipData));
         $zip = new ZipArchive();
-        $res = $zip->open($file, ZipArchive::OVERWRITE);
+        $res = $zip->open($path.'tmp.zip');
         
         if($res == TRUE) {
-            $zipData = preg_replace('/^data:;base64,/', '', $zipData);
-            $zip->addFromString('zip', base64_decode($zipData));
-
-            $path = 'uploads/' . $idItem . '/';
+            $path = 'uploads'. DS . $idItem . DS;
             $zip->extractTo($path);
             $zip->close();
         } else {
             $this->Flash->error(__('Unable to unzip.'));
         }
-        
         
         return $path;
     }
@@ -216,6 +211,16 @@ class  SlidersController extends AppController
                 ->order(['orderAsset' => 'ASC']);
         
         return $assets;
+    }
+    
+    private function loadMedia($idItem) {
+        $this->loadModel('Media');
+        $media = $this->Media
+            ->find()
+            ->where(['idItem' => $idItem])
+            ->first();
+        
+        return $media;
     }
     
     private function saveAsset($idItem, $projectName, $clientName, $nextOrder, $requestData) 

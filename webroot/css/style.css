@@ -11,6 +11,11 @@ section.container {
     margin: 30px;
 }
 
+iframe {
+    border: none;
+    overflow: hidden;
+}
+
 .date {
     margin-top: 50px;
 }

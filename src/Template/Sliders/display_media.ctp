@@ -2,16 +2,14 @@
 <?php $this->Html->addCrumb($project->name, '/' . $client->urlName . '/' . $project->urlName) ?>
 <?php $this->Html->addCrumb($item->name, '/' . $client->urlName . '/' . $project->urlName . '/' . $item->idItem) ?>
 
-<div id="assets">
-    <?php if (isset($date)) : ?>
-
+    <?php if (isset($data)) : ?>
+    <iframe src="<?= $this->Html->Url->build($data->path.'index.html')?>" width="<?= $data->width ?>" height="<?= $data->height ?>" scrolling="no"></iframe>
     <?php elseif ($isAdmin): ?>
-
         <?= $this->Html->script('jquery-2.1.4.min') ?>
         <?= $this->Html->script('jquery-ui.min') ?>
         <?= $this->Html->script('drop') ?>
-
-        <div id="new-asset">
+        <div id="assets">
+            <div id="new-asset">
                 <div id="dropzone">
                     <p>Add new zip</p>
                 </div>
@@ -26,5 +24,5 @@
                     <?= $this->Form->end() ?>
                 </div>
             </div>
+        </div>
     <?php endif; ?>
-</div>

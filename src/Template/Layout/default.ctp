@@ -37,7 +37,8 @@ $cakeDescription = 'DropApp';
 <body>
     <header>
         <div>
-            <div class="left"><div class="left"><?= $this->Html->getCrumbs(' > ', 'Clients') ?></div></div>
+            <div class="left"><?= $this->Html->image('brigade.png') ?></div>
+            <div class="left"><?= $this->Html->getCrumbs(' > ', 'Clients') ?></div>
             <div class="right">
                 <?php if ($userData): ?>
                 <?= $isAdmin ? $this->Html->link('Panel', ['controller' => 'Users']) : '' ?>

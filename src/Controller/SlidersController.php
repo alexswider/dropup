@@ -86,7 +86,10 @@ class  SlidersController extends AppController
                 $this->Flash->error(__('You do not have permission.'));
                 return $this->redirect(['controller' => 'users', 'action' => 'login']);
             }
-            $this->newItem($project->idProject, $this->request->data['name'], $this->request->data['type']);
+            $itemId = $this->newItem($project->idProject, $this->request->data['name'], $this->request->data['type']);
+            if($itemId) {
+                $this->redirect("$clientName/$projectName/$itemId");
+            }
         }
         $this->set(compact('items', 'itemsDate', 'project', 'client'));
     }
@@ -151,19 +154,19 @@ class  SlidersController extends AppController
     }
     
     private function displayAssets($idItem, $projectName, $clientName) {
-        $data = $$this->loadAssets($idItem);
+        $data = $this->loadAssets($idItem);
         
-        if ($$this->request->is('post')) {
-            if ($$this->Auth->user('type') != 'admin') {
-                $$this->Flash->error(__('You do not have permission.'));
-                return $$this->redirect(['controller' => 'users', 'action' => 'login']);
+        if ($this->request->is('post')) {
+            if ($this->Auth->user('type') != 'admin') {
+                $this->Flash->error(__('You do not have permission.'));
+                return $this->redirect(['controller' => 'users', 'action' => 'login']);
             }
             $nextOrder = $data->count();
-            $$this->saveAsset($idItem, $projectName, $clientName, $nextOrder, $$this->request->data);
+            $this->saveAsset($idItem, $projectName, $clientName, $nextOrder, $this->request->data);
         }
         
-        $$this->set(compact('data'));
-        $$this->render('display_assets');
+        $this->set(compact('data'));
+        $this->render('display_assets');
     }
     
     private function saveMedia($idItem, $projectName, $clientName, $requestData) {
@@ -187,8 +190,9 @@ class  SlidersController extends AppController
     
     private function unzip($zipData, $idItem) {
         $path = 'uploads'. DS;
-        $zipData = preg_replace('/^data:;base64,/', '', $zipData);
-        file_put_contents($path.'tmp.zip', base64_decode($zipData));
+        //$zipData = preg_replace('/^data:.+base64,/', '', $zipData);
+        $zipData = explode(",", $zipData);
+        file_put_contents($path.'tmp.zip', base64_decode($zipData[1]));
         $zip = new ZipArchive();
         $res = $zip->open($path.'tmp.zip');
         
@@ -281,6 +285,7 @@ class  SlidersController extends AppController
                 
         if ($result && mkdir('uploads/' . $result->idItem)) {
             $this->Flash->success(__('Item has been saved.'));
+            return $result->idItem;
         } else {
             $this->Flash->error(__('Unable to add your item.'));
         }

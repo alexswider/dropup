@@ -10,8 +10,8 @@ class ClientsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->notEmpty('description')
-            ->notEmpty('description');
+            ->notEmpty('name')
+            ->notEmpty('urlName');
 
         return $validator;
     }

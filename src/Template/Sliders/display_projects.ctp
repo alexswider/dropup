@@ -22,6 +22,9 @@
     <?php foreach ($projects as $project): ?>
     <p>
         <?= $this->Html->link($project->name, $this->Url->build('/' . $client->urlName . '/' . $project->urlName, true)) ?>
+        <?php if ($isAdmin): ?>
+            <a href="/deleteProject/<?= $project->idProject ?>"><i class="fa fa-trash"></i></a>
+        <?php endif; ?>
     </p>
     <?php endforeach; ?>
 </div>

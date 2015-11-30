@@ -56,6 +56,9 @@ function fileLoaded(filename, dataUri) {
         var name = document.createElement("p");
         name.innerHTML = filename;
         results.appendChild(name);
-        $('#zipfile').val(dataUri);
+        $('#base64').val(dataUri);
+        var split = filename.split(/\.|x/g);
+        $('#width').val(split[0]);
+        $('#height').val(split[1]);
     }
 }

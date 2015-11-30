@@ -28,7 +28,6 @@
     <div class="asset" id="<?= $asset->idAsset ?>">
         <p class="order"><?= $key+1 ?></p>
         <img src="<?= $this->Url->build($asset->imagePath, true) ?>">
-        <p><strong><?= $asset->name ?></strong></p>
         <p><?= $asset->description ?></p>
     </div>
     <?php endforeach; ?>
@@ -40,7 +39,6 @@
         <div id="info">
             <?= $this->Form->create() ?>
             <?= $this->Form->input('image', ['type' => 'hidden']) ?>
-            <?= $this->Form->input('name') ?>
             <?= $this->Form->input('description') ?>
             <?= $this->Form->button('Save') ?>
             <?= $this->Form->end() ?>

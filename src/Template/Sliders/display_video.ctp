@@ -3,7 +3,10 @@
 <?php $this->Html->addCrumb($item->name, '/' . $client->urlName . '/' . $project->urlName . '/' . $item->idItem) ?>
 
 <?php if (isset($data)) : ?>
-    <iframe src="<?= $this->Html->Url->build($data->path.'index.html')?>" width="<?= $data->width ?>" height="<?= $data->height ?>" scrolling="no"></iframe>
+    <video width="<?= $data->width ?>" height="<?= $data->height ?>" controls>
+        <source src="<?= $this->Html->Url->build($data->videoPath)?>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <p class="description"><?= $data->description ?></p>
 <?php elseif ($isAdmin): ?>
     <?= $this->Html->script('jquery-2.1.4.min') ?>
@@ -12,7 +15,7 @@
     <div id="assets">
         <div id="new-asset">
             <div id="dropzone">
-                <p>Add new zip</p>
+                <p>Add new video</p>
             </div>
             <div id="info">
                 <?= $this->Form->create() ?>

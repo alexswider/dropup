@@ -30,6 +30,7 @@ class  SlidersController extends AppController
                 
         $this->set(compact('clients', 'privateClients'));
     }
+    
     public function displayProjects($clientName)
     {
         $this->loadModel('Clients');
@@ -110,6 +111,8 @@ class  SlidersController extends AppController
             $this->displayAssets($idItem, $projectName, $clientName);
         } else if ($item->type == 'media') {
             $this->displayMedia($idItem, $projectName, $clientName);
+        } else if ($item->type == 'video') {
+            $this->displayVideo($idItem, $projectName, $clientName);
         }
     }
     
@@ -138,7 +141,44 @@ class  SlidersController extends AppController
         $this->redirect($this->request->data['refpage']);
     }
     
-    private function displayMedia($idItem, $projectName, $clientName) {
+    public function deleteItem($idItem) {
+        if ($this->Auth->user('type') != 'admin') {
+            $this->Flash->error(__('You do not have permission.'));
+            return $this->redirect(['controller' => 'users', 'action' => 'login']);
+        }
+        $this->loadModel('Items');
+        
+        $item = $this->Items->get($idItem);
+        if($this->Items->delete($item) && $this->rrmdir('uploads'. DS . $idItem)) {
+            $this->Flash->success(__('The item has been deleted.'));
+            return $this->redirect('/');
+        }
+    }
+    
+    public function deleteProject($idProject) {
+        if ($this->Auth->user('type') != 'admin') {
+            $this->Flash->error(__('You do not have permission.'));
+            return $this->redirect(['controller' => 'users', 'action' => 'login']);
+        }
+        $this->loadModel('Items');
+        $this->loadModel('Projects');
+        
+        $items = $this->Items
+                ->find()
+                ->where(['idProject' => $idProject]);
+        
+        foreach ($items as $item) {
+            $this->deleteItem($item->idItem);
+        }
+        
+        $project = $this->Projects->get($idProject);
+        if($this->Projects->delete($project)) {
+            $this->Flash->success(__('The project has been deleted.'));
+            return $this->redirect('/');
+        }
+    }
+
+        private function displayMedia($idItem, $projectName, $clientName) {
         $data = $this->loadMedia($idItem);
         
         if ($this->request->is('post')) {
@@ -151,6 +191,21 @@ class  SlidersController extends AppController
         
         $this->set(compact('data'));
         $this->render('display_media');
+    }
+    
+    private function displayVideo($idItem, $projectName, $clientName) {
+        $data = $this->loadVideo($idItem);
+        
+        if ($this->request->is('post')) {
+            if ($this->Auth->user('type') != 'admin') {
+                $this->Flash->error(__('You do not have permission.'));
+                return $this->redirect(['controller' => 'users', 'action' => 'login']);
+            }
+            $this->saveVideo($idItem, $projectName, $clientName, $this->request->data);
+        }
+        
+        $this->set(compact('data'));
+        $this->render('display_video');
     }
     
     private function displayAssets($idItem, $projectName, $clientName) {
@@ -174,11 +229,10 @@ class  SlidersController extends AppController
         
         $media = $this->Media->newEntity([
             'idItem' => $idItem, 
-            'name' => $requestData['name'],
             'description' => $requestData['description'],
             'height' => $requestData['height'],
             'width' => $requestData['width'],
-            'path' => $this->unzip($requestData['zipfile'], $idItem),
+            'path' => $this->unzip($requestData['base64'], $idItem),
         ]);
         
         if ($idItem && $this->Media->save($media)) {
@@ -186,6 +240,24 @@ class  SlidersController extends AppController
             return $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
         }
         $this->Flash->error(__('Unable to add your media.'));
+    }
+    
+    private function saveVideo($idItem, $projectName, $clientName, $requestData) {
+        $this->loadModel('Videos');
+        
+        $video = $this->Videos->newEntity([
+            'idItem' => $idItem, 
+            'description' => $requestData['description'],
+            'height' => $requestData['height'],
+            'width' => $requestData['width'],
+            'videoPath' => $this->saveMp4($requestData['base64'], $idItem),
+        ]);
+        
+        if ($idItem && $this->Videos->save($video)) {
+            $this->Flash->success(__('Video has been saved.'));
+            return $this->redirect($clientName . '/' . $projectName . '/' . $idItem);
+        }
+        $this->Flash->error(__('Unable to add your video.'));
     }
     
     private function unzip($zipData, $idItem) {
@@ -204,6 +276,14 @@ class  SlidersController extends AppController
             $this->Flash->error(__('Unable to unzip.'));
         }
         
+        return $path;
+    }
+    
+    private function saveMp4($videoData, $idItem) {
+        $path = 'uploads'. DS . $idItem . DS . 'video.mp4';
+        $videoData = explode(",", $videoData);
+        file_put_contents($path, base64_decode($videoData[1]));
+
         return $path;
     }
     
@@ -227,13 +307,22 @@ class  SlidersController extends AppController
         return $media;
     }
     
+    private function loadVideo($idItem) {
+        $this->loadModel('Videos');
+        $video = $this->Videos
+            ->find()
+            ->where(['idItem' => $idItem])
+            ->first();
+        
+        return $video;
+    }
+    
     private function saveAsset($idItem, $projectName, $clientName, $nextOrder, $requestData) 
     {
         $this->loadModel('Assets');
         
         $asset = $this->Assets->newEntity([
             'idItem' => $idItem, 
-            'name' => $requestData['name'],
             'description' => $requestData['description'],
             'imagePath' => $this->saveImage($requestData['image'], $idItem),
             'orderAsset' => $nextOrder
@@ -283,11 +372,24 @@ class  SlidersController extends AppController
         
         $result = $this->Items->save($item);
                 
-        if ($result && mkdir('uploads/' . $result->idItem)) {
+        if ($result && mkdir('uploads'. DS . $result->idItem)) {
             $this->Flash->success(__('Item has been saved.'));
             return $result->idItem;
         } else {
             $this->Flash->error(__('Unable to add your item.'));
         }
+    }
+
+    private function rrmdir($dir) { 
+       if (is_dir($dir)) { 
+         $objects = scandir($dir); 
+         foreach ($objects as $object) { 
+           if ($object != "." && $object != "..") { 
+             if (filetype($dir."/".$object) == "dir") rrmdir($dir."/".$object); else unlink($dir."/".$object); 
+           } 
+         } 
+         reset($objects); 
+         return rmdir($dir); 
+       } 
     }
 }

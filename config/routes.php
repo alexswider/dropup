@@ -52,6 +52,11 @@ Router::scope('/', function ($routes) {
     $routes->connect('/users/add-admin', ['controller' => 'Users', 'action' => 'addAdmin']);
     $routes->connect('/users/add-client', ['controller' => 'Users', 'action' => 'addClient']);
     $routes->connect('/users', ['controller' => 'Users']);
+    
+    $routes->connect('/deleteItem/:item', ['controller' => 'Sliders', 'action' => 'deleteItem'],
+            ['item' => '\d+', 'pass' => ['item']]);
+    $routes->connect('/deleteProject/:project', ['controller' => 'Sliders', 'action' => 'deleteProject'],
+            ['project' => '\d+', 'pass' => ['project']]);
 
     $routes->connect('/', ['controller' => 'Sliders', 'action' => 'index']);
     $routes->connect('/saveOrder/:item', 

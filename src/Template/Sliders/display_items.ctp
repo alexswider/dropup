@@ -16,7 +16,7 @@
     <div class="new-item slide-form">
         <?= $this->Form->create() ?>
         <?= $this->Form->input('name') ?>
-        <?= $this->Form->select('type', ['assets' => 'Assets','media' => 'Media']) ?>
+        <?= $this->Form->select('type', ['assets' => 'img (png,jpg,gif)', 'media' => 'banner (.zip)', 'video' => 'video (mp4)']) ?>
         <?= $this->Form->button('Add') ?>
         <?= $this->Form->end() ?>
     </div>
@@ -32,6 +32,9 @@
         <?php foreach ($items[$key] as $item): ?>
         <p>
             <?= $this->Html->link($item->name, $this->Url->build('/' . $client->urlName . '/' . $project->urlName . '/' . $item->idItem, true)) ?>
+            <?php if ($isAdmin): ?>
+            <a href="/deleteItem/<?= $item->idItem ?>"><i class="fa fa-trash"></i></a>
+            <?php endif; ?>
         </p>
         <?php endforeach; ?>
     <?php endforeach; ?>

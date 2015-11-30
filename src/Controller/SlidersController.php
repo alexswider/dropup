@@ -27,6 +27,20 @@ class  SlidersController extends AppController
             $privateClients = $this->Clients->find()->where(['private' => 1, 'idClient' => $user['idClient']]);
             $clients = array_merge($privateClients->toArray(), $clients->toArray());
         }
+        
+        if ($this->request->is('post')) {
+            if ($this->Auth->user('type') != 'admin') {
+                $this->Flash->error(__('You do not have permission.'));
+                return $this->redirect(['controller' => 'users', 'action' => 'login']);
+            }
+            $client = $this->Clients->newEntity();
+            $this->Clients->patchEntity($client, $this->request->data);
+            if ($this->Clients->save($client)) {
+                $this->Flash->success(__('New client has been saved.'));
+            } else {
+                $this->Flash->error(__('Unable to add new client.'));
+            }
+        }
                 
         $this->set(compact('clients', 'privateClients'));
     }
@@ -141,7 +155,8 @@ class  SlidersController extends AppController
         $this->redirect($this->request->data['refpage']);
     }
     
-    public function deleteItem($idItem) {
+    public function deleteItem($idItem) 
+    {
         if ($this->Auth->user('type') != 'admin') {
             $this->Flash->error(__('You do not have permission.'));
             return $this->redirect(['controller' => 'users', 'action' => 'login']);
@@ -155,7 +170,8 @@ class  SlidersController extends AppController
         }
     }
     
-    public function deleteProject($idProject) {
+    public function deleteProject($idProject) 
+    {
         if ($this->Auth->user('type') != 'admin') {
             $this->Flash->error(__('You do not have permission.'));
             return $this->redirect(['controller' => 'users', 'action' => 'login']);
@@ -178,7 +194,8 @@ class  SlidersController extends AppController
         }
     }
 
-        private function displayMedia($idItem, $projectName, $clientName) {
+    private function displayMedia($idItem, $projectName, $clientName) 
+    {
         $data = $this->loadMedia($idItem);
         
         if ($this->request->is('post')) {
@@ -193,7 +210,8 @@ class  SlidersController extends AppController
         $this->render('display_media');
     }
     
-    private function displayVideo($idItem, $projectName, $clientName) {
+    private function displayVideo($idItem, $projectName, $clientName) 
+    {
         $data = $this->loadVideo($idItem);
         
         if ($this->request->is('post')) {
@@ -208,7 +226,8 @@ class  SlidersController extends AppController
         $this->render('display_video');
     }
     
-    private function displayAssets($idItem, $projectName, $clientName) {
+    private function displayAssets($idItem, $projectName, $clientName) 
+    {
         $data = $this->loadAssets($idItem);
         
         if ($this->request->is('post')) {
@@ -242,7 +261,8 @@ class  SlidersController extends AppController
         $this->Flash->error(__('Unable to add your media.'));
     }
     
-    private function saveVideo($idItem, $projectName, $clientName, $requestData) {
+    private function saveVideo($idItem, $projectName, $clientName, $requestData) 
+    {
         $this->loadModel('Videos');
         
         $video = $this->Videos->newEntity([
@@ -260,7 +280,8 @@ class  SlidersController extends AppController
         $this->Flash->error(__('Unable to add your video.'));
     }
     
-    private function unzip($zipData, $idItem) {
+    private function unzip($zipData, $idItem) 
+    {
         $path = 'uploads'. DS;
         //$zipData = preg_replace('/^data:.+base64,/', '', $zipData);
         $zipData = explode(",", $zipData);
@@ -287,7 +308,8 @@ class  SlidersController extends AppController
         return $path;
     }
     
-    private function loadAssets($idItem) {
+    private function loadAssets($idItem) 
+    {
         $this->loadModel('Assets');
         $assets = $this->Assets
                 ->find()
@@ -297,7 +319,8 @@ class  SlidersController extends AppController
         return $assets;
     }
     
-    private function loadMedia($idItem) {
+    private function loadMedia($idItem) 
+    {
         $this->loadModel('Media');
         $media = $this->Media
             ->find()
@@ -380,16 +403,17 @@ class  SlidersController extends AppController
         }
     }
 
-    private function rrmdir($dir) { 
-       if (is_dir($dir)) { 
-         $objects = scandir($dir); 
-         foreach ($objects as $object) { 
-           if ($object != "." && $object != "..") { 
-             if (filetype($dir."/".$object) == "dir") $this->rrmdir($dir."/".$object); else unlink($dir."/".$object); 
-           } 
-         } 
-         reset($objects); 
-         return rmdir($dir); 
-       } 
+    private function rrmdir($dir) 
+    { 
+        if (is_dir($dir)) { 
+            $objects = scandir($dir); 
+            foreach ($objects as $object) { 
+                if ($object != "." && $object != "..") { 
+                    if (filetype($dir."/".$object) == "dir") $this->rrmdir($dir."/".$object); else unlink($dir."/".$object); 
+                } 
+            } 
+            reset($objects); 
+            return rmdir($dir); 
+        } 
     }
 }
